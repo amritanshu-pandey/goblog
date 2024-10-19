@@ -1,0 +1,30 @@
+package views
+
+templ Base() {
+	<html>
+		<head>
+			<title>amritanshu.in</title>
+			<link
+				rel="stylesheet"
+				href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+			/>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		</head>
+		<body class="container">
+			<header>
+				<nav>
+					<ul>
+						<l1><h1><a href="/" class="contrast">Amritanshu's Blog</a></h1></l1>
+					</ul>
+					<ul>
+						<l1><a href="https://amritanshu.in/" class="secondary">About</a></l1>
+					</ul>
+				</nav>
+			</header>
+			<main>
+				{ children... }
+			</main>
+		</body>
+	</html>
+}

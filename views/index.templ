@@ -1,0 +1,23 @@
+package views
+
+import (
+	"amritanshu.in/goblog/md"
+	"fmt"
+)
+
+templ Index(posts map[string]md.Post, sortedTitles []md.Kv) {
+	@Base() {
+		<table>
+			for _, t := range sortedTitles {
+				<tr>
+					<td>
+						<a href={ templ.SafeURL(fmt.Sprintf("/article/%s", t.Value.FileName)) } class="secondary">{ t.Value.Metadata.Title }</a>
+					</td>
+					<td>
+						{ t.Value.Metadata.Date.Format("Jan 02, 2006") }
+					</td>
+				</tr>
+			}
+		</table>
+	}
+}

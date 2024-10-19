@@ -1,0 +1,19 @@
+package views
+
+import (
+	"amritanshu.in/goblog/md"
+)
+
+templ Article(post md.Post) {
+	@Base() {
+		<h1>{ post.Metadata.Title }</h1>
+		for i, tag := range post.Metadata.Tags {
+			#{ tag }
+			if i < len(post.Metadata.Tags) - 1 {
+				, 
+			}
+		}
+		<hr/>
+		@templ.Raw(string(post.BodyHTML))
+	}
+}
