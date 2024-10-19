@@ -51,8 +51,8 @@ func mdToHTML(md []byte) []byte {
 
 func extractMetadata(mdFile *os.File) (string, string, error) {
 	scanner := bufio.NewScanner(mdFile)
-	metadata := []string{}
-	body := []string{}
+	var metadata []string
+	var body []string
 	sepCounter := 0
 	line := 0
 	hasMetadata := false
@@ -138,20 +138,6 @@ func ActivePosts(path string) (map[string]Post, error) {
 	}
 
 	return activePosts, nil
-}
-
-func SortedPostsByTitle(path string) ([]string, error) {
-	activePosts, err := ActivePosts(path)
-	if err != nil {
-		return nil, err
-	}
-
-	titles := []string{}
-
-	for k := range activePosts {
-		titles = append(titles, k)
-	}
-	return sort.StringSlice(titles), nil
 }
 
 type Kv struct {

@@ -17,23 +17,23 @@ type Config struct {
 	Server      ServerConfig `json:"server"`
 }
 
-func (c *Config) read(cfg_path string) []byte {
-	config_data, err := os.ReadFile(cfg_path)
+func (c *Config) read(cfgPath string) []byte {
+	configData, err := os.ReadFile(cfgPath)
 	if err != nil {
 		panic(fmt.Sprintf("Unable to read the config file. Error: %s", err))
 	}
 
-	return config_data
+	return configData
 }
 
 func (c *Config) Init() {
-	cfg_path := os.Getenv("GOBLOG_CONFIG_PATH")
-	if cfg_path == "" {
-		cfg_path = "./.goblog.json"
+	cfgPath := os.Getenv("GOBLOG_CONFIG_PATH")
+	if cfgPath == "" {
+		cfgPath = "./.goblog.json"
 	}
-	config_data := c.read(cfg_path)
+	configData := c.read(cfgPath)
 
-	err := json.Unmarshal(config_data, c)
+	err := json.Unmarshal(configData, c)
 	if err != nil {
 		panic(fmt.Sprintf("Unable to parse config file. Error: %s", err))
 	}
