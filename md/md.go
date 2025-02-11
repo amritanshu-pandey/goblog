@@ -159,7 +159,7 @@ type Kv struct {
 	Value Post
 }
 
-func SortedPostsByDate(path string) ([]Kv, error) {
+func SortedPostsByDate(path string, showDrafts bool) ([]Kv, error) {
 	activePosts, err := ActivePosts(path)
 	if err != nil {
 		return nil, err
@@ -168,7 +168,13 @@ func SortedPostsByDate(path string) ([]Kv, error) {
 	var titles []Kv
 
 	for k, v := range activePosts {
-		titles = append(titles, Kv{k, v})
+		if showDrafts {
+			titles = append(titles, Kv{k, v})
+		} else {
+			if !v.Metadata.Draft {
+				titles = append(titles, Kv{k, v})
+			}
+		}
 	}
 
 	sort.Slice(titles, func(i, j int) bool {

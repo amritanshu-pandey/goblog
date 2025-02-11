@@ -36,7 +36,7 @@ func RunServer(markdownPath string, assetsDir string, serverPort int, serverBind
 	if err != nil {
 		return err
 	}
-	sortedTitles, err := md.SortedPostsByDate(markdownPath)
+	sortedTitles, err := md.SortedPostsByDate(markdownPath, false)
 	if err != nil {
 		return err
 	}

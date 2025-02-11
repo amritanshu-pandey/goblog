@@ -7,7 +7,7 @@ toolchain go1.23.6
 require (
 	github.com/a-h/templ v0.3.833
 	github.com/gomarkdown/markdown v0.0.0-20240930133441-72d49d9543d8
-	github.com/prometheus/client_golang v1.20.4
+	github.com/prometheus/client_golang v1.20.5
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.55.0
 	go.opentelemetry.io/otel v1.31.0
 	go.opentelemetry.io/otel/exporters/prometheus v0.53.0
