@@ -1,6 +1,6 @@
 {
-  "markdown_dir": "/home/amritanshu/Projects/github.com/amritanshu-pandey/amritanshu.in/content/posts",
-  "assets_dir": "/home/amritanshu/Projects/github.com/amritanshu-pandey/amritanshu.in/content/static",
+  "markdown_dir": "/home/amritanshu/Projects/github/amritanshu-pandey/amritanshu.in/content/posts",
+  "assets_dir": "/home/amritanshu/Projects/github/amritanshu-pandey/amritanshu.in/content/static",
   "server": {
     "port": 8080,
     "bind_address": "127.0.0.1"

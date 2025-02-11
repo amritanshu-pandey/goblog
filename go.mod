@@ -1,9 +1,11 @@
 module amritanshu.in/goblog
 
-go 1.22.6
+go 1.23
+
+toolchain go1.23.6
 
 require (
-	github.com/a-h/templ v0.2.778
+	github.com/a-h/templ v0.3.833
 	github.com/gomarkdown/markdown v0.0.0-20240930133441-72d49d9543d8
 	github.com/prometheus/client_golang v1.20.4
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.55.0
@@ -32,6 +34,6 @@ require (
 	github.com/prometheus/procfs v0.15.1 // indirect
 	go.opentelemetry.io/otel/metric v1.31.0 // indirect
 	go.opentelemetry.io/otel/trace v1.31.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
 	google.golang.org/protobuf v1.35.1 // indirect
 )
