@@ -7,6 +7,7 @@ import (
 templ Article(post md.Post) {
 	@Base() {
 		<h1>{ post.Metadata.Title }</h1>
+		{ post.Metadata.Date.Format("Jan 02, 2006") }
 		for i, tag := range post.Metadata.Tags {
 			#{ tag }
 			if i < len(post.Metadata.Tags) - 1 {
