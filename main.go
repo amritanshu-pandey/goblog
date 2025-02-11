@@ -6,5 +6,5 @@ func main() {
 	config := Config{}
 	config.Init()
 
-	backend.RunServer(config.MarkdownDir, config.AssetsDir, config.Server.Port, config.Server.BindAddr)
+	backend.RunServer(config.MarkdownDir, config.AssetsDir, config.Server.Port, config.Server.BindAddr, config.ShowDrafts)
 }

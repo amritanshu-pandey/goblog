@@ -1,7 +1,9 @@
 ---
 services:
   goblog:
-    image: amritanshu.in/goblog:1
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       GOBLOG_CONFIG_PATH: /goblog/config
     volumes:

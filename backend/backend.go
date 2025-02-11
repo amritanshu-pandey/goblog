@@ -30,13 +30,14 @@ func initMeter() (*sdkmetric.MeterProvider, error) {
 	return mp, nil
 }
 
-func RunServer(markdownPath string, assetsDir string, serverPort int, serverBindAddr string) error {
+func RunServer(markdownPath string, assetsDir string, serverPort int, serverBindAddr string, showDrafts bool) error {
 	mux := http.NewServeMux()
-	markdownPosts, err := md.ActivePosts(markdownPath)
+	markdownPosts, err := md.ActivePosts(markdownPath, showDrafts)
 	if err != nil {
 		return err
 	}
-	sortedTitles, err := md.SortedPostsByDate(markdownPath, false)
+	fmt.Println(showDrafts)
+	sortedTitles, err := md.SortedPostsByDate(markdownPath, showDrafts)
 	if err != nil {
 		return err
 	}

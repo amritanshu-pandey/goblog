@@ -123,7 +123,7 @@ func Posts(path string) (map[string]Post, error) {
 	return posts, nil
 }
 
-func ActivePosts(path string) (map[string]Post, error) {
+func ActivePosts(path string, showDrafts bool) (map[string]Post, error) {
 	allPosts, err := Posts(path)
 	if err != nil {
 		return nil, err
@@ -132,16 +132,17 @@ func ActivePosts(path string) (map[string]Post, error) {
 	activePosts := make(map[string]Post)
 
 	for p := range allPosts {
-		if !allPosts[p].Metadata.Draft {
-			activePosts[p] = allPosts[p]
+		if !showDrafts && allPosts[p].Metadata.Draft {
+			continue
 		}
+		activePosts[p] = allPosts[p]
 	}
 
 	return activePosts, nil
 }
 
-func SortedPostsByTitle(path string) ([]string, error) {
-	activePosts, err := ActivePosts(path)
+func SortedPostsByTitle(path string, showDrafts bool) ([]string, error) {
+	activePosts, err := ActivePosts(path, showDrafts)
 	if err != nil {
 		return nil, err
 	}
@@ -160,7 +161,7 @@ type Kv struct {
 }
 
 func SortedPostsByDate(path string, showDrafts bool) ([]Kv, error) {
-	activePosts, err := ActivePosts(path)
+	activePosts, err := ActivePosts(path, showDrafts)
 	if err != nil {
 		return nil, err
 	}
@@ -168,13 +169,7 @@ func SortedPostsByDate(path string, showDrafts bool) ([]Kv, error) {
 	var titles []Kv
 
 	for k, v := range activePosts {
-		if showDrafts {
-			titles = append(titles, Kv{k, v})
-		} else {
-			if !v.Metadata.Draft {
-				titles = append(titles, Kv{k, v})
-			}
-		}
+		titles = append(titles, Kv{k, v})
 	}
 
 	sort.Slice(titles, func(i, j int) bool {

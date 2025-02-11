@@ -15,6 +15,7 @@ type Config struct {
 	MarkdownDir string       `json:"markdown_dir"`
 	AssetsDir   string       `json:"assets_dir"`
 	Server      ServerConfig `json:"server"`
+	ShowDrafts  bool         `json:"show_drafts"`
 }
 
 func (c *Config) read(cfg_path string) []byte {
