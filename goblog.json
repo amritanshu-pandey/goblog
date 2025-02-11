@@ -1,8 +1,8 @@
 {
-  "markdown_dir": "/home/amritanshu/Projects/github/amritanshu-pandey/amritanshu.in/content/posts",
-  "assets_dir": "/home/amritanshu/Projects/github/amritanshu-pandey/amritanshu.in/content/static",
+  "markdown_dir": "/goblog/content/posts",
+  "assets_dir": "/goblog/content/static",
   "server": {
     "port": 8080,
-    "bind_address": "127.0.0.1"
+    "bind_address": "0.0.0.0"
   }
 }

@@ -1,0 +1,11 @@
+---
+services:
+  goblog:
+    image: amritanshu.in/goblog:1
+    environment:
+      GOBLOG_CONFIG_PATH: /goblog/config
+    volumes:
+      - ./goblog.json:/goblog/config:ro
+      - ../content:/goblog/content:ro
+    ports:
+      - 8080:8080
